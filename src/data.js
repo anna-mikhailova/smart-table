@@ -1,4 +1,4 @@
-import { makeIndex } from "./lib/utils.js";
+import { makeIndex, request } from "./lib/utils.js";
 
 const BASE_URL = "https://webinars.webdev.education-services.ru/sp7-api";
 
@@ -25,8 +25,8 @@ export function initData(sourceData) {
       // если индексы ещё не установлены, то делаем запросы
       [sellers, customers] = await Promise.all([
         // запрашиваем и деструктурируем в уже объявленные ранее переменные
-        fetch(`${BASE_URL}/sellers`).then((res) => res.json()), // запрашиваем продавцов
-        fetch(`${BASE_URL}/customers`).then((res) => res.json()), // запрашиваем покупателей
+        request(`${BASE_URL}/sellers`), // запрашиваем продавцов
+        request(`${BASE_URL}/customers`), // запрашиваем покупателей
       ]);
     }
     return { sellers, customers };

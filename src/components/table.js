@@ -30,9 +30,7 @@ export function initTable(settings, onAction) {
 
   // @todo: #1.3 —  обработать события и вызвать onAction()
   // Обработка события change
-  root.container.addEventListener("change", () => {
-    onAction(); // Вызываем без аргументов
-  });
+  root.container.addEventListener("change", onAction());
 
   // Обработка события reset
   root.container.addEventListener("reset", () => {
